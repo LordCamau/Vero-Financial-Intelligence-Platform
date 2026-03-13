@@ -1,0 +1,9 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#f4f2ee" />
+  <rect x="80" y="80" width="1040" height="540" rx="24" fill="#ffffff" stroke="#e5dfd6" />
+  <rect x="120" y="140" width="960" height="140" rx="16" fill="#0f766e" />
+  <rect x="120" y="320" width="460" height="240" rx="16" fill="#f9f6f2" />
+  <rect x="620" y="320" width="460" height="240" rx="16" fill="#f9f6f2" />
+  <text x="160" y="220" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-size="26">Insights Hub</text>
+  <text x="160" y="250" fill="#e7f5f2" font-family="Space Grotesk, sans-serif" font-size="14">Subscriptions, anomalies, and forecasts</text>
+</svg>

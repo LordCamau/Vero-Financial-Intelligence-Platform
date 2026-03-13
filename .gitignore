@@ -1,0 +1,19 @@
+node_modules
+npm-debug.log
+pnpm-lock.yaml
+.yarn
+.DS_Store
+.env
+.env.*
+
+# Python
+__pycache__
+.venv
+*.pyc
+
+# Build
+api/dist
+frontend/dist
+
+# Docker
+postgres_data

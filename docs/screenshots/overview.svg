@@ -1,0 +1,11 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" fill="#f4f2ee" />
+  <rect x="80" y="80" width="1040" height="540" rx="24" fill="#ffffff" stroke="#e5dfd6" />
+  <rect x="120" y="140" width="240" height="420" rx="16" fill="#111210" />
+  <rect x="400" y="140" width="680" height="120" rx="16" fill="#f1ebe3" />
+  <rect x="400" y="280" width="320" height="260" rx="16" fill="#f9f6f2" />
+  <rect x="760" y="280" width="320" height="260" rx="16" fill="#f9f6f2" />
+  <text x="140" y="200" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-size="28">VERO</text>
+  <text x="420" y="210" fill="#0f766e" font-family="Space Grotesk, sans-serif" font-size="26">Overview Dashboard</text>
+  <text x="420" y="240" fill="#5c5a58" font-family="Space Grotesk, sans-serif" font-size="14">Sample layout preview</text>
+</svg>
