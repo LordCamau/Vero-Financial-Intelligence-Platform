@@ -1,78 +1,45 @@
 # Vero
-Financial Intelligence for Smarter Decisions
+
+**Financial intelligence that turns data into decisions**
 
 ## What this is
 
-Vero is a financial intelligence platform designed to help individuals and small businesses understand, analyze, and act on their financial data with clarity.
+Vero is a financial intelligence platform that analyzes transaction data to surface insights, risks, and trends that help users make better financial decisions.
 
-Instead of static dashboards and disconnected tools, Vero focuses on turning raw financial data into actionable insights that support real decision-making.
+It focuses on interpretation, not just visualization.
+
 
 ## The problem
 
-Most financial tools today fall into two buckets:
+Most financial tools either:
 
-- Basic dashboards that show data but do not explain it
-- Complex systems that require expertise to extract value
+* show raw data without context
+* or require expertise to extract meaningful insights
 
-As a result:
+As a result, users react to numbers instead of understanding them.
 
-- Users see numbers but lack insight
-- Decisions are reactive instead of proactive
-- Financial understanding remains shallow
 
 ## The approach
 
-Vero is built around a simple idea:
+Vero turns financial data into actionable insights by:
 
-Financial data should guide decisions, not just report history
+* analyzing transaction patterns
+* detecting anomalies and risks
+* highlighting trends in income, spending, and cash flow
 
-The platform focuses on:
+The goal is simple:
 
-- Interpreting financial data instead of just displaying it
-- Highlighting patterns, risks, and opportunities
-- Providing context that helps users make informed choices
+> help users understand what is happening and what to do next
 
-## Key features (current and planned)
-- Financial data aggregation and normalization
-- Insight generation based on transaction patterns
-- Trend analysis for income, expenses, and cash flow
-- Risk and anomaly detection
-- Decision support through intelligent recommendations
 
-## Example use cases
-- Identifying spending patterns that impact savings
-- Detecting irregular transactions or financial risks
-- Understanding cash flow trends over time
-- Supporting budgeting and planning decisions
+## Example insight
+
+"Your spending increased 18% this month, driven mostly by weekend dining. At this rate, you will exceed your monthly budget in 10 days."
+
 
 ## Demo
 
 Coming soon
-
-Planned:
-
-- Interactive dashboard
-- Sample datasets with generated insights
-- Visual breakdowns of financial behavior
-
-## Architecture overview
-
-Vero is designed as a modular system with clear separation of concerns:
-
-- Data layer: ingestion and normalization of financial data
-- Processing layer: analysis and insight generation
-- Application layer: APIs and business logic
-- Interface layer: user-facing dashboard and visualizations
-
-This structure allows the platform to scale from simple personal use to more complex financial scenarios.
-
-```mermaid
-graph TD
-  A[React Dashboard] --> B[Node.js API Gateway]
-  B --> C[(PostgreSQL)]
-  B --> D[(Redis + BullMQ)]
-  B --> E[Python Analytics Service]
-```
 
 ## Design philosophy
 
@@ -86,173 +53,93 @@ Every feature is evaluated based on one question:
 
 Does this help the user make a better financial decision?
 
-## Current status
+## Current capabilities
 
-This project is in active development.
+* Transaction ingestion and storage
+* Account and balance tracking
+* Cash flow and spending analysis
+* Basic insight endpoints (anomalies, subscriptions, health)
 
-What exists:
 
-- Initial project structure
-- Core concept and architecture direction
 
-What is in progress:
+## Planned features
 
-- First working data pipeline
-- Initial insight generation logic
+* Real-time transaction ingestion
+* ML-based categorization
+* Alerting and notifications
+* Multi-currency support
+* Advanced financial planning tools
 
-What is next:
 
-- A minimal but functional dashboard
-- Real data examples and outputs
+## Architecture
 
-## What I would improve next
+Modular system with separated services:
 
-- Refine the scope toward a specific user segment
-- Validate assumptions with real-world financial data
-- Improve the UX layer to better communicate insights
+* React frontend dashboard
+* Node.js API gateway
+* Python analytics service
+* PostgreSQL database
+* Redis for caching and background jobs
 
-## Tech direction
+```mermaid
+graph TD
+  A[React Dashboard] --> B[Node.js API Gateway]
+  B --> C[(PostgreSQL)]
+  B --> D[(Redis + BullMQ)]
+  B --> E[Python Analytics Service]
+```
 
-Planned stack includes:
 
-- Backend: data processing and APIs
-- Frontend: interactive UI for insights and visualization
-- Data layer: structured financial datasets
+## Tech stack
 
-Details will evolve as the project matures.
+* Frontend: React + TypeScript + Vite
+* Backend: Node.js + Express
+* Analytics: Python + FastAPI
+* Database: PostgreSQL
+* Queue: Redis + BullMQ
+* Infra: Docker
 
-## Why this project exists
 
-Vero is an exploration of how financial tools can move beyond reporting and toward true intelligence.
+## Quickstart
 
-The goal is not just to build another dashboard, but to create a system that helps people understand their financial reality and act on it with confidence.
-
-## Tech Stack
-
-- Frontend: React + TypeScript + Vite
-- Backend API: Node.js + Express + TypeScript
-- Analytics Service: Python + FastAPI
-- Database: PostgreSQL
-- Caching/Queues: Redis + BullMQ
-- Containerization: Docker + Docker Compose
-- Testing: Jest (Node), Pytest (Python)
-
-## Services
-
-- `frontend`: React analytics dashboard
-- `api`: Node.js API Gateway
-- `analytics`: Python analytics microservice
-- `postgres`: Primary data store
-- `redis`: Cache and async job queue
-
-## Setup
-
-### Docker (recommended)
+Run everything with Docker:
 
 ```bash
 docker-compose up --build
 ```
 
-Services will be available at:
+Services:
 
-- Frontend: http://localhost:5173
-- API: http://localhost:4000
-- Analytics: http://localhost:8000
+* Frontend: http://localhost:5173
+* API: http://localhost:4000
+* Analytics: http://localhost:8000
 
-### Local development
 
-1. API
-
-```bash
-cd api
-cp .env.example .env
-npm install
-npm run dev
-```
-
-2. Analytics service
-
-```bash
-cd analytics
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
-```
-
-3. Frontend
-
-```bash
-cd frontend
-cp .env.example .env
-npm install
-npm run dev
-```
-
-## API Documentation
-
-### Authentication
-
-- `POST /auth/register`
-- `POST /auth/login`
-- `POST /auth/refresh`
-
-### Accounts
-
-- `POST /accounts`
-- `GET /accounts`
-- `GET /accounts/:id`
-
-### Transactions
-
-- `POST /transactions`
-- `GET /transactions`
-- `GET /transactions/:id`
-
-### Insights
-
-- `GET /insights/subscriptions`
-- `GET /insights/anomalies`
-- `GET /insights/cashflow`
-- `GET /insights/health`
-
-### Dashboard
-
-- `GET /dashboard`
-
-#### Example request
+## API example
 
 ```bash
 curl -H "Authorization: Bearer <token>" http://localhost:4000/dashboard
 ```
 
-#### Example response
-
 ```json
 {
   "total_balance": 12450.5,
   "monthly_spending": 2210.24,
-  "monthly_income": 5400,
-  "top_categories": [
-    { "category": "Food", "total": 320.5 },
-    { "category": "Shopping", "total": 245.25 }
-  ],
-  "recent_transactions": []
+  "monthly_income": 5400
 }
 ```
 
-## Screenshots
+## Status
 
-![Overview](docs/screenshots/overview.svg)
-![Insights](docs/screenshots/insights.svg)
+Active development.
 
-## Roadmap
+Current focus:
 
-- Streaming transaction ingestion
-- ML-enhanced categorization
-- Alerting and notifications
-- Multi-currency conversions
-- Advanced budgeting and goal tracking
+* building the data pipeline
+* improving insight generation
+* shipping a usable dashboard
+
+---
 
 ## License
 
